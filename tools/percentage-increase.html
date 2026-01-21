@@ -1,1 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Percentage Increase Calculator - Calculate growth, price increases, salary raises, and more with step-by-step explanations.">
+    <meta name="keywords" content="percentage increase calculator, growth calculator, price increase, salary raise calculator, percent growth">
+    <title>Percentage Increase Calculator - Calculate Growth & Raises | PercentageMath</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Percentage Increase Calculator",
+        "description": "Calculate percentage increases for prices, salaries, growth rates, and more",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/calculator.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="percentage-calculator.html">Calculator</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="discount-calculator.html">Discount</a></li>
+                        <li><a href="percentage-increase.html" class="active">Increase</a></li>
+                        <li><a href="percentage-decrease.html">Decrease</a></li>
+                        <li><a href="../pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Ad Top Banner -->
+    <div class="ad-container" data-ad="top-banner"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Percentage Increase Calculator</h1>
+            <p class="subtitle">Calculate growth percentages for prices, salaries, population, and more. Perfect for business, finance, and personal use.</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-content">
+                    <div class="calculator-form">
+                        <h3>Calculate Percentage Increase</h3>
+                        <p class="form-description">Enter original and new values to calculate the percentage increase.</p>
+                        
+                        <div class="input-group">
+                            <label for="originalValueInc">
+                                <span class="label-text">Original Value</span>
+                                <span class="label-example">e.g., Starting salary, old price</span>
+                            </label>
+                            <input type="number" id="originalValueInc" placeholder="Enter original value" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="newValueInc">
+                                <span class="label-text">New Value</span>
+                                <span class="label-example">e.g., New salary, increased price</span>
+                            </label>
+                            <input type="number" id="newValueInc" placeholder="Enter new value" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="button-group">
+                            <button class="btn calculate-btn" onclick="calculateIncrease()">
+                                <span class="btn-icon">📈</span>
+                                Calculate Increase
+                            </button>
+                            <button class="btn reset-btn" onclick="resetIncrease()">
+                                <span class="btn-icon">↺</span>
+                                Reset
+                            </button>
+                        </div>
+                        
+                        <div class="result-container">
+                            <div class="result-header">
+                                <h4>Increase Results:</h4>
+                                <button class="copy-btn" onclick="copyIncreaseResults()" title="Copy results">
+                                    📋
+                                </button>
+                            </div>
+                            <div class="result" id="increaseResult">
+                                <div style="text-align: center; padding: 1rem;">
+                                    <p style="color: var(--text-light);">Enter values to calculate percentage increase</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Ad -->
+            <div class="ad-container ad-middle" data-ad="middle-rectangle"></div>
+
+            <!-- Explanation Section -->
+            <section class="explanation-section">
+                <h2>How Percentage Increase Works</h2>
+                <div class="explanation-content" id="increaseExplanation">
+                    <h3>Percentage Increase Formula</h3>
+                    <div class="formula-display">
+                        <code>Percentage Increase = [(New Value - Original Value) ÷ Original Value] × 100</code>
+                    </div>
+                    
+                    <h3>Step-by-Step Calculation</h3>
+                    <p>To calculate percentage increase:</p>
+                    <ol>
+                        <li>Find the difference: New Value - Original Value</li>
+                        <li>Divide the difference by the Original Value</li>
+                        <li>Multiply by 100 to get the percentage</li>
+                    </ol>
+                    
+                    <div class="example-box">
+                        <h4>Example: Salary Increase</h4>
+                        <p><strong>Original Salary:</strong> $50,000</p>
+                        <p><strong>New Salary:</strong> $55,000</p>
+                        <p><strong>Calculation:</strong></p>
+                        <p>1. Difference: $55,000 - $50,000 = $5,000</p>
+                        <p>2. Divide: $5,000 ÷ $50,000 = 0.1</p>
+                        <p>3. Multiply: 0.1 × 100 = <strong>10% increase</strong></p>
+                    </div>
+                    
+                    <h3>Common Applications</h3>
+                    <div class="applications-grid">
+                        <div class="application">
+                            <h4>💰 Salary Raises</h4>
+                            <p>Calculate your salary increase percentage after a raise or promotion.</p>
+                        </div>
+                        <div class="application">
+                            <h4>🏠 Price Increases</h4>
+                            <p>Determine how much prices have increased over time.</p>
+                        </div>
+                        <div class="application">
+                            <h4>📈 Investment Growth</h4>
+                            <p>Calculate returns on investments and portfolio growth.</p>
+                        </div>
+                        <div class="application">
+                            <h4>📊 Business Metrics</h4>
+                            <p>Measure sales growth, revenue increase, and business expansion.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Real-World Examples -->
+            <section class="examples-section">
+                <h2>Real-World Examples</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="example-icon">💼</div>
+                            <h3>Salary Negotiation</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> You earn $60,000 and receive an offer for $72,000.</p>
+                        <p><strong>Calculation:</strong> [(72,000 - 60,000) ÷ 60,000] × 100 = 20%</p>
+                        <p><strong>Result:</strong> That's a 20% salary increase!</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="example-icon">🏠</div>
+                            <h3>Home Value</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Your home was worth $300,000 and is now $360,000.</p>
+                        <p><strong>Calculation:</strong> [(360,000 - 300,000) ÷ 300,000] × 100 = 20%</p>
+                        <p><strong>Result:</strong> Your home value increased by 20%.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="example-icon">📈</div>
+                            <h3>Stock Investment</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> You bought stock at $50 per share, now worth $65.</p>
+                        <p><strong>Calculation:</strong> [(65 - 50) ÷ 50] × 100 = 30%</p>
+                        <p><strong>Result:</strong> Your investment gained 30%.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="example-icon">🛒</div>
+                            <h3>Price Changes</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> A product was $80, increased to $100.</p>
+                        <p><strong>Calculation:</strong> [(100 - 80) ÷ 80] × 100 = 25%</p>
+                        <p><strong>Result:</strong> Price increased by 25%.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Percentage Increase FAQs</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What's the difference between percentage increase and absolute increase?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Absolute Increase:</strong> The actual numerical difference (e.g., $50,000 to $55,000 = $5,000 increase).</p>
+                            <p><strong>Percentage Increase:</strong> The relative change as a percentage (e.g., $50,000 to $55,000 = 10% increase).</p>
+                            <p>Percentage is better for comparing different scales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I calculate compound annual growth rate (CAGR)?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>CAGR = [(Ending Value ÷ Beginning Value)^(1 ÷ Number of Years)] - 1</p>
+                            <p><strong>Example:</strong> Investment grows from $1,000 to $1,500 over 3 years:</p>
+                            <p>CAGR = [(1500 ÷ 1000)^(1/3)] - 1 = 14.47% per year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What if my original value is zero?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>If original value is zero, percentage increase is undefined (division by zero).</p>
+                            <p>In such cases, you can only calculate absolute increase.</p>
+                            <p><strong>Example:</strong> Starting from 0 customers to 100 customers = infinite percentage increase.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How to reverse calculate original value from percentage increase?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Use formula: <code>Original Value = New Value ÷ (1 + Percentage Increase/100)</code></p>
+                            <p><strong>Example:</strong> New value is $110 after 10% increase:</p>
+                            <p>Original = $110 ÷ (1 + 10/100) = $110 ÷ 1.1 = $100</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Ad -->
+            <div class="ad-container ad-bottom-banner" data-ad="bottom-banner"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <span style="font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                        </a>
+                    </div>
+                    <p class="footer-description">Accurate percentage calculations for business and personal use.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Increase Tools</h4>
+                    <ul>
+                        <li><a href="percentage-increase.html" class="active">Percentage Increase</a></li>
+                        <li><a href="percentage-calculator.html">Basic Calculator</a></li>
+                        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="percentage-decrease.html">Decrease Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Business Tools</h4>
+                    <ul>
+                        <li><a href="gst-calculator.html">GST Calculator</a></li>
+                        <li><a href="profit-percentage.html">Profit Calculator</a></li>
+                        <li><a href="../blog.html">Business Tips</a></li>
+                        <li><a href="../pages/contact.html">Consultation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="../pages/about.html">About Us</a></li>
+                        <li><a href="../pages/contact.html">Contact</a></li>
+                        <li><a href="../pages/privacy-policy.html">Privacy</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> PercentageMath. All rights reserved.</p>
+                <p class="disclaimer-note">Note: Calculations are for reference. Verify important figures with professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/faq.js"></script>
+    
+    <!-- Increase Calculator JS -->
+    <script>
+        function calculateIncrease() {
+            const original = parseFloat(document.getElementById('originalValueInc').value);
+            const newVal = parseFloat(document.getElementById('newValueInc').value);
+            
+            // Validation
+            if (isNaN(original) || isNaN(newVal)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+            
+            if (original <= 0) {
+                alert('Original value must be greater than zero');
+                return;
+            }
+            
+            if (newVal <= original) {
+                alert('New value must be greater than original value for increase');
+                return;
+            }
+            
+            // Calculations
+            const increaseAmount = newVal - original;
+            const percentageIncrease = (increaseAmount / original) * 100;
+            const multiplier = newVal / original;
+            
+            // Display results
+            const resultDiv = document.getElementById('increaseResult');
+            resultDiv.innerHTML = `
+                <div style="padding: 1rem;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="font-size: 3rem; font-weight: bold; color: var(--success-color);">
+                            ${percentageIncrease.toFixed(2)}%
+                        </div>
+                        <div style="font-size: 1rem; color: var(--text-light); margin-top: 0.5rem;">
+                            Percentage Increase
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; color: var(--text-light);">Original Value</div>
+                            <div style="font-size: 1.3rem; font-weight: bold;">${formatNumber(original)}</div>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; color: var(--text-light);">New Value</div>
+                            <div style="font-size: 1.3rem; font-weight: bold;">${formatNumber(newVal)}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, var(--success-color), #2e7d32); padding: 1.5rem; border-radius: 12px; color: white; margin-bottom: 1rem;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">Increase Amount</div>
+                        <div style="font-size: 2rem; font-weight: bold;">${formatNumber(increaseAmount)}</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">Absolute Increase</div>
+                    </div>
+                    
+                    <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Multiplier:</span>
+                            <span style="font-weight: bold;">${multiplier.toFixed(4)}×</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Formula:</span>
+                            <span>[(${formatNumber(newVal)} - ${formatNumber(original)}) ÷ ${formatNumber(original)}] × 100</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Highlight result
+            resultDiv.classList.remove('highlight');
+            void resultDiv.offsetWidth;
+            resultDiv.classList.add('highlight');
+            
+            // Update explanation
+            updateIncreaseExplanation(original, newVal, percentageIncrease, increaseAmount);
+        }
+        
+        function resetIncrease() {
+            document.getElementById('originalValueInc').value = '';
+            document.getElementById('newValueInc').value = '';
+            document.getElementById('increaseResult').innerHTML = `
+                <div style="text-align: center; padding: 1rem;">
+                    <p style="color: var(--text-light);">Enter values to calculate percentage increase</p>
+                </div>
+            `;
+            
+            // Reset explanation
+            document.getElementById('increaseExplanation').innerHTML = `
+                <h3>Percentage Increase Formula</h3>
+                <div class="formula-display">
+                    <code>Percentage Increase = [(New Value - Original Value) ÷ Original Value] × 100</code>
+                </div>
+                
+                <h3>Step-by-Step Calculation</h3>
+                <p>To calculate percentage increase:</p>
+                <ol>
+                    <li>Find the difference: New Value - Original Value</li>
+                    <li>Divide the difference by the Original Value</li>
+                    <li>Multiply by 100 to get the percentage</li>
+                </ol>
+                
+                <div class="example-box">
+                    <h4>Example: Salary Increase</h4>
+                    <p><strong>Original Salary:</strong> $50,000</p>
+                    <p><strong>New Salary:</strong> $55,000</p>
+                    <p><strong>Calculation:</strong></p>
+                    <p>1. Difference: $55,000 - $50,000 = $5,000</p>
+                    <p>2. Divide: $5,000 ÷ $50,000 = 0.1</p>
+                    <p>3. Multiply: 0.1 × 100 = <strong>10% increase</strong></p>
+                </div>
+            `;
+        }
+        
+        function copyIncreaseResults() {
+            const resultDiv = document.getElementById('increaseResult');
+            const textToCopy = resultDiv.textContent;
+            
+            if (navigator.clipboard && !textToCopy.includes('Enter values to calculate')) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Results copied to clipboard!');
+                });
+            }
+        }
+        
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(2) + 'M';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(2) + 'K';
+            }
+            return num.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+        
+        function updateIncreaseExplanation(original, newVal, percentage, increaseAmount) {
+            const explanationDiv = document.getElementById('increaseExplanation');
+            
+            explanationDiv.innerHTML = `
+                <h3>Your Calculation Explained</h3>
+                <div class="formula-display">
+                    <code>Percentage Increase = [(${formatNumber(newVal)} - ${formatNumber(original)}) ÷ ${formatNumber(original)}] × 100</code>
+                </div>
+                
+                <h3>Step-by-Step Breakdown</h3>
+                <div class="step-counter">
+                    <div class="step completed">1</div>
+                    <div class="step-label">Calculate the increase amount</div>
+                </div>
+                <p>${formatNumber(newVal)} - ${formatNumber(original)} = <strong>${formatNumber(increaseAmount)}</strong></p>
+                
+                <div class="step-counter">
+                    <div class="step completed">2</div>
+                    <div class="step-label">Divide increase by original value</div>
+                </div>
+                <p>${formatNumber(increaseAmount)} ÷ ${formatNumber(original)} = <strong>${(increaseAmount/original).toFixed(4)}</strong></p>
+                
+                <div class="step-counter">
+                    <div class="step completed">3</div>
+                    <div class="step-label">Multiply by 100 for percentage</div>
+                </div>
+                <p>${(increaseAmount/original).toFixed(4)} × 100 = <strong>${percentage.toFixed(2)}%</strong></p>
+                
+                <div class="example-box">
+                    <h4>Interpretation</h4>
+                    <p>The value increased from ${formatNumber(original)} to ${formatNumber(newVal)}, which is:</p>
+                    <ul>
+                        <li><strong>${formatNumber(increaseAmount)}</strong> absolute increase</li>
+                        <li><strong>${percentage.toFixed(2)}%</strong> relative increase</li>
+                        <li><strong>${(newVal/original).toFixed(2)}×</strong> multiplier factor</li>
+                    </ul>
+                    <p>For every 100 units of original value, there are now ${(100 + percentage).toFixed(2)} units.</p>
+                </div>
+            `;
+        }
+    </script>
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .examples-section {
+            margin-top: 3rem;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .example-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .example-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .example-icon {
+            font-size: 2rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .application {
+            background: var(--bg-lighter);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+        }
+        
+        .application h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</body>
+</html>
