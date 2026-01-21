@@ -1,1 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact PercentageMath - Get help, provide feedback, or report issues with our percentage calculators.">
+    <meta name="keywords" content="contact percentage calculator, math tool support, calculator feedback, report bug percentage tool">
+    <title>Contact Us - PercentageMath Support & Feedback</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact PercentageMath",
+        "description": "Contact form and support information for PercentageMath calculator tools",
+        "url": "https://percentagemath.com/pages/contact.html"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../tools/percentage-calculator.html">Calculator</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../tools/discount-calculator.html">Discount</a></li>
+                        <li><a href="../tools/percentage-increase.html">Increase</a></li>
+                        <li><a href="../tools/percentage-decrease.html">Decrease</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Contact PercentageMath</h1>
+            <p class="subtitle">We're here to help! Get support, provide feedback, or report issues with our percentage calculators.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions, suggestions, or found a bug? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">📧</div>
+                            <h3>Email Support</h3>
+                            <p>For general inquiries and support</p>
+                            <a href="mailto:support@percentagemath.com" class="contact-link">support@percentagemath.com</a>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">🐛</div>
+                            <h3>Bug Reports</h3>
+                            <p>Found an issue with our calculators?</p>
+                            <a href="mailto:bugs@percentagemath.com" class="contact-link">bugs@percentagemath.com</a>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">💡</div>
+                            <h3>Suggestions</h3>
+                            <p>Have ideas for new features?</p>
+                            <a href="mailto:ideas@percentagemath.com" class="contact-link">ideas@percentagemath.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-preview">
+                        <h3>Quick Help</h3>
+                        <p>Before contacting us, check if your question is answered in our <a href="#faq">FAQ section</a> below.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <h2>Send Message</h2>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="support">Technical Support</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="subjectError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+                            <div class="error-message" id="messageError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span>Subscribe to our newsletter for updates and tips</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                            <div class="error-message" id="captchaError"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn submit-btn" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">Sending...</span>
+                        </button>
+                        
+                        <div class="form-disclaimer">
+                            <p>By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll respond within 48 hours.</p>
+                        </div>
+                    </form>
+                    
+                    <div id="successMessage" class="success-message" style="display: none;">
+                        <div class="success-icon">✅</div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting us. We've received your message and will get back to you soon.</p>
+                        <button onclick="resetForm()" class="btn reset-btn">Send Another Message</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <section id="faq" class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How accurate are your percentage calculators?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our calculators use precise mathematical formulas and are tested extensively. However, for critical financial or academic calculations, always double-check with official sources or professional advice.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Are your calculators really free?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, all our percentage calculators are 100% free to use. No registration, no subscriptions, no hidden fees. We support the site through non-intrusive advertising.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I use your calculators on my mobile phone?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! Our website is fully responsive and works perfectly on all devices - desktop computers, tablets, and mobile phones.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do you store my calculation data?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No, all calculations happen locally in your browser. We don't store or track your calculation data. Your privacy is important to us.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How often are calculators updated?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We regularly update our calculators based on user feedback and testing. If you find any issues or have suggestions, please contact us using the form above.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I suggest a new calculator feature?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We welcome all suggestions. Use the contact form above and select "Feature Request" as the subject. We review all suggestions and implement the most requested features.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Business Hours -->
+            <section class="business-hours">
+                <h2>Response Time</h2>
+                <div class="hours-container">
+                    <div class="hours-card">
+                        <div class="hours-icon">⏰</div>
+                        <h3>Email Response Time</h3>
+                        <p>We typically respond to emails within <strong>24-48 hours</strong> during business days.</p>
+                        <p>For urgent matters, please include "URGENT" in your subject line.</p>
+                    </div>
+                    
+                    <div class="hours-card">
+                        <div class="hours-icon">🌍</div>
+                        <h3>Operating Hours</h3>
+                        <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM (EST)</p>
+                        <p><strong>Weekends:</strong> Limited support available</p>
+                    </div>
+                    
+                    <div class="hours-card">
+                        <div class="hours-icon">🚀</div>
+                        <h3>Quick Solutions</h3>
+                        <p>Many common questions are answered in our <a href="#faq">FAQ section</a> above.</p>
+                        <p>For bug reports, please include steps to reproduce the issue.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <span style="font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                        </a>
+                    </div>
+                    <p class="footer-description">Free percentage calculator tools with reliable support.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../tools/percentage-calculator.html">Main Calculator</a></li>
+                        <li><a href="../blog.html">Blog & Tips</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html" class="active">Contact Support</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="../pages/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Popular Tools</h4>
+                    <ul>
+                        <li><a href="../tools/discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="../tools/percentage-increase.html">Increase Calculator</a></li>
+                        <li><a href="../tools/percentage-decrease.html">Decrease Calculator</a></li>
+                        <li><a href="../tools/gst-calculator.html">GST Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> PercentageMath. All rights reserved.</p>
+                <p class="disclaimer-note">Note: For critical calculations, always verify with official sources.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/faq.js"></script>
+    
+    <!-- Contact Form JavaScript -->
+    <script>
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', handleFormSubmit);
+                
+                // Real-time validation
+                const inputs = contactForm.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', validateField);
+                    input.addEventListener('input', clearError);
+                });
+            }
+            
+            // Initialize FAQ
+            initFAQ();
+        });
+        
+        // Validate individual field
+        function validateField(event) {
+            const field = event.target;
+            const errorId = field.id + 'Error';
+            const errorElement = document.getElementById(errorId);
+            
+            // Clear previous error
+            clearError(event);
+            
+            // Check required fields
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                showError(field, errorElement, 'This field is required');
+                return false;
+            }
+            
+            // Email validation
+            if (field.type === 'email' && field.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    showError(field, errorElement, 'Please enter a valid email address');
+                    return false;
+                }
+            }
+            
+            // Message length validation
+            if (field.id === 'message' && field.value.trim().length < 10) {
+                showError(field, errorElement, 'Message must be at least 10 characters');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Show error message
+        function showError(field, errorElement, message) {
+            field.style.borderColor = 'var(--error-color)';
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+        }
+        
+        // Clear error message
+        function clearError(event) {
+            const field = event.target;
+            const errorId = field.id + 'Error';
+            const errorElement = document.getElementById(errorId);
+            
+            field.style.borderColor = '';
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+            }
+        }
+        
+        // Handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Validate all fields
+            const fields = ['name', 'email', 'subject', 'message'];
+            let isValid = true;
+            
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const event = { target: field };
+                if (!validateField(event)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                showNotification('Please fix the errors in the form', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (in real implementation, this would be an API call)
+            setTimeout(() => {
+                // Show success message
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Show notification
+                showNotification('Message sent successfully!', 'success');
+                
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Optionally, send data to server here
+                // const formData = new FormData(contactForm);
+                // fetch('/api/contact', { method: 'POST', body: formData })
+                //     .then(response => response.json())
+                //     .then(data => console.log('Success:', data))
+                //     .catch(error => console.error('Error:', error));
+                
+            }, 1500);
+        }
+        
+        // Reset form
+        function resetForm() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            
+            // Clear all errors
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.textContent = '';
+                element.style.display = 'none';
+            });
+            
+            // Clear field borders
+            const fields = document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select');
+            fields.forEach(field => {
+                field.style.borderColor = '';
+            });
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            // Check if notification system exists in main.js
+            if (typeof window.showNotification === 'function') {
+                window.showNotification(message, type);
+            } else {
+                // Fallback notification
+                alert(message);
+            }
+        }
+        
+        // Initialize FAQ
+        function initFAQ() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    const isExpanded = faqItem.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
+                });
+            });
+        }
+    </script>
+    
+    <!-- Contact Page Specific Styles -->
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-info h2,
+        .contact-form h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .contact-methods {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-method {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .method-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .faq-preview {
+            background: var(--bg-lighter);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-top: 2rem;
+        }
+        
+        .contact-form {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .checkbox-label input {
+            margin-top: 3px;
+            width: auto;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .form-disclaimer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .success-message {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 2px solid var(--success-color);
+        }
+        
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .business-hours {
+            margin-top: 4rem;
+        }
+        
+        .hours-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .hours-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        
+        .hours-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-form {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                margin: 2rem 0;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .success-message {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hours-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-method {
+                padding: 1.25rem;
+            }
+            
+            .contact-form {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</body>
+</html>
