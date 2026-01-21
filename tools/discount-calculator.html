@@ -1,1 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Discount Calculator - Calculate final price after discount, percentage off, and savings amount instantly.">
+    <meta name="keywords" content="discount calculator, percentage off, sale price calculator, discount percentage, online shopping calculator">
+    <title>Discount Calculator - Calculate Sale Price & Savings | PercentageMath</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Discount Calculator",
+        "description": "Calculate final price after discount with detailed breakdown",
+        "applicationCategory": "ShoppingApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/calculator.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <!-- Replace with actual logo image -->
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="percentage-calculator.html">Calculator</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="discount-calculator.html" class="active">Discount</a></li>
+                        <li><a href="percentage-increase.html">Increase</a></li>
+                        <li><a href="percentage-decrease.html">Decrease</a></li>
+                        <li><a href="../pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Google Ad Top Banner -->
+    <div class="ad-container" data-ad="top-banner">
+        <!-- Ad will be loaded by JavaScript -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Discount Calculator</h1>
+            <p class="subtitle">Calculate final price after discount, percentage off, and savings amount instantly.</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-content">
+                    <div class="calculator-form">
+                        <h3>Calculate Discount</h3>
+                        <p class="form-description">Enter original price and discount percentage to calculate final price and savings.</p>
+                        
+                        <div class="input-group">
+                            <label for="originalPrice">
+                                <span class="label-text">Original Price ($)</span>
+                                <span class="label-example">e.g., 99.99</span>
+                            </label>
+                            <input type="number" id="originalPrice" placeholder="Enter original price" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="discountPercentage">
+                                <span class="label-text">Discount Percentage</span>
+                                <span class="label-example">e.g., 20 for 20% off</span>
+                            </label>
+                            <div class="input-with-unit">
+                                <input type="number" id="discountPercentage" placeholder="Enter discount percentage" step="0.01" min="0" max="100">
+                                <span class="unit">%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button class="btn calculate-btn" onclick="calculateDiscount()">
+                                <span class="btn-icon">=</span>
+                                Calculate Discount
+                            </button>
+                            <button class="btn reset-btn" onclick="resetDiscount()">
+                                <span class="btn-icon">↺</span>
+                                Reset
+                            </button>
+                        </div>
+                        
+                        <div class="result-container">
+                            <div class="result-header">
+                                <h4>Results:</h4>
+                                <button class="copy-btn" onclick="copyDiscountResults()" title="Copy results">
+                                    📋
+                                </button>
+                            </div>
+                            <div class="result" id="discountResult">
+                                <div style="text-align: center; padding: 1rem;">
+                                    <p style="color: var(--text-light);">Enter values to calculate discount</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Ad -->
+            <div class="ad-container ad-middle" data-ad="middle-rectangle">
+                <!-- Ad will be loaded by JavaScript -->
+            </div>
+
+            <!-- Explanation Section -->
+            <section class="explanation-section">
+                <h2>How Discount Calculation Works</h2>
+                <div class="explanation-content">
+                    <h3>Discount Formula</h3>
+                    <p>The discount calculation uses this formula:</p>
+                    <div class="formula-display">
+                        <code>Discount Amount = Original Price × (Discount Percentage ÷ 100)</code><br><br>
+                        <code>Final Price = Original Price - Discount Amount</code>
+                    </div>
+                    
+                    <h3>Step-by-Step Example</h3>
+                    <p>If an item costs $100 and has a 25% discount:</p>
+                    <ol>
+                        <li>Calculate discount amount: $100 × (25 ÷ 100) = $25</li>
+                        <li>Subtract discount from original price: $100 - $25 = $75</li>
+                        <li>Final price after discount: $75</li>
+                        <li>You save: $25</li>
+                    </ol>
+                    
+                    <h3>Common Discount Scenarios</h3>
+                    <div class="example-box">
+                        <h4>Black Friday Sale</h4>
+                        <p>Item: $200, Discount: 40%</p>
+                        <p>Savings: $80, Final Price: $120</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <h4>Clearance Sale</h4>
+                        <p>Item: $50, Discount: 70%</p>
+                        <p>Savings: $35, Final Price: $15</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Tools -->
+            <section class="related-tools">
+                <h2>Related Calculators</h2>
+                <div class="tools-grid">
+                    <a href="percentage-calculator.html" class="tool-card">
+                        <div class="tool-icon">🧮</div>
+                        <h3>Percentage Calculator</h3>
+                        <p>Basic percentage calculations</p>
+                    </a>
+                    <a href="percentage-increase.html" class="tool-card">
+                        <div class="tool-icon">↑</div>
+                        <h3>Increase Calculator</h3>
+                        <p>Calculate percentage increases</p>
+                    </a>
+                    <a href="percentage-decrease.html" class="tool-card">
+                        <div class="tool-icon">↓</div>
+                        <h3>Decrease Calculator</h3>
+                        <p>Calculate percentage decreases</p>
+                    </a>
+                    <a href="gst-calculator.html" class="tool-card">
+                        <div class="tool-icon">🏷️</div>
+                        <h3>GST Calculator</h3>
+                        <p>Calculate Goods and Services Tax</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Discount Calculator FAQs</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I calculate discount percentage from original and sale price?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Use this formula: <code>Discount % = [(Original Price - Sale Price) ÷ Original Price] × 100</code></p>
+                            <p>Example: Original $100, Sale $75</p>
+                            <p><code>[(100 - 75) ÷ 100] × 100 = 25% discount</code></p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What's the difference between percentage off and fixed amount off?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Percentage off:</strong> Discount is calculated as a percentage of the original price (e.g., 20% off $100 = $20 off).</p>
+                            <p><strong>Fixed amount off:</strong> A specific dollar amount is subtracted (e.g., $20 off $100 = 20% discount if price is $100).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How to calculate final price after multiple discounts?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Apply discounts sequentially. For example, 20% off then 10% off:</p>
+                            <p>1. First discount: $100 - 20% = $80</p>
+                            <p>2. Second discount: $80 - 10% = $72</p>
+                            <p>Total discount is not 30% but 28% (from $100 to $72).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Does this calculator work for taxes and shipping?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>This calculator shows the item price discount only. For total cost including tax and shipping:</p>
+                            <p>1. Calculate item discount first</p>
+                            <p>2. Add tax percentage to discounted price</p>
+                            <p>3. Add fixed shipping cost</p>
+                            <p>Tax and shipping are usually applied after discount.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Ad -->
+            <div class="ad-container ad-bottom-banner" data-ad="bottom-banner">
+                <!-- Ad will be loaded by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <span style="font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                        </a>
+                    </div>
+                    <p class="footer-description">Free online percentage and discount calculators for smart shopping decisions.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Calculator Tools</h4>
+                    <ul>
+                        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="percentage-increase.html">Increase Calculator</a></li>
+                        <li><a href="percentage-decrease.html">Decrease Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Helpful Links</h4>
+                    <ul>
+                        <li><a href="../blog.html">Blog & Tips</a></li>
+                        <li><a href="../pages/about.html">About Us</a></li>
+                        <li><a href="../pages/contact.html">Contact Support</a></li>
+                        <li><a href="../pages/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Business Tools</h4>
+                    <ul>
+                        <li><a href="gst-calculator.html">GST Calculator</a></li>
+                        <li><a href="profit-percentage.html">Profit Calculator</a></li>
+                        <li><a href="marks-percentage.html">Grade Calculator</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> PercentageMath. All rights reserved. | <a href="../pages/privacy-policy.html">Privacy Policy</a> | <a href="../pages/disclaimer.html">Disclaimer</a></p>
+                <p class="disclaimer-note">Note: Calculations are for reference only. Verify with official sources for important decisions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/faq.js"></script>
+    
+    <!-- Discount Calculator Specific JS -->
+    <script>
+        function calculateDiscount() {
+            const originalPrice = parseFloat(document.getElementById('originalPrice').value);
+            const discountPercentage = parseFloat(document.getElementById('discountPercentage').value);
+            
+            // Validation
+            if (isNaN(originalPrice) || isNaN(discountPercentage)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+            
+            if (discountPercentage < 0 || discountPercentage > 100) {
+                alert('Discount percentage must be between 0 and 100');
+                return;
+            }
+            
+            // Calculations
+            const discountAmount = originalPrice * (discountPercentage / 100);
+            const finalPrice = originalPrice - discountAmount;
+            const savingsPercentage = discountPercentage;
+            
+            // Display results
+            const resultDiv = document.getElementById('discountResult');
+            resultDiv.innerHTML = `
+                <div style="padding: 1rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">Original Price</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-color);">$${originalPrice.toFixed(2)}</div>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">Discount</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--secondary-color);">${discountPercentage.toFixed(1)}%</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 1.5rem; border-radius: 12px; color: white; text-align: center; margin-bottom: 1rem;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">You Pay</div>
+                        <div style="font-size: 2.5rem; font-weight: bold;">$${finalPrice.toFixed(2)}</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">Final Price After Discount</div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, var(--success-color), #2e7d32); padding: 1.5rem; border-radius: 12px; color: white; text-align: center;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">You Save</div>
+                        <div style="font-size: 2rem; font-weight: bold;">$${discountAmount.toFixed(2)}</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">Total Savings</div>
+                    </div>
+                    
+                    <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-light); border-radius: 8px; font-size: 0.9rem; color: var(--text-light);">
+                        <strong>Summary:</strong> Original price of $${originalPrice.toFixed(2)} with ${discountPercentage.toFixed(1)}% discount saves you $${discountAmount.toFixed(2)}. Final price is $${finalPrice.toFixed(2)}.
+                    </div>
+                </div>
+            `;
+            
+            // Highlight result
+            resultDiv.classList.remove('highlight');
+            void resultDiv.offsetWidth;
+            resultDiv.classList.add('highlight');
+        }
+        
+        function resetDiscount() {
+            document.getElementById('originalPrice').value = '';
+            document.getElementById('discountPercentage').value = '';
+            document.getElementById('discountResult').innerHTML = `
+                <div style="text-align: center; padding: 1rem;">
+                    <p style="color: var(--text-light);">Enter values to calculate discount</p>
+                </div>
+            `;
+        }
+        
+        function copyDiscountResults() {
+            const resultDiv = document.getElementById('discountResult');
+            const textToCopy = resultDiv.textContent;
+            
+            if (navigator.clipboard && textToCopy !== 'Enter values to calculate discount') {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Results copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
