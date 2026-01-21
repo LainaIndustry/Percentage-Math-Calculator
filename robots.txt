@@ -1,1 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /temp/
 
+# Sitemap
+Sitemap: https://percentagemath.com/sitemap.xml
+
+# Crawl delay (be nice to server)
+Crawl-delay: 2
+
+# Ads bots
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
