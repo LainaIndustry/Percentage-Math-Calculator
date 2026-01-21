@@ -1,1 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PercentageMath Blog - Learn about percentage calculations, math tips, and how to use our calculator tools effectively.">
+    <meta name="keywords" content="percentage blog, math tips, calculator guide, percentage tutorials, educational content">
+    <title>PercentageMath Blog - Math Tips & Calculator Guides</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "PercentageMath Blog",
+        "description": "Educational content about percentage calculations and math tips",
+        "publisher": {
+            "@type": "Organization",
+            "name": "PercentageMath"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/percentage-calculator.html">Calculator</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="tools/discount-calculator.html">Discount</a></li>
+                        <li><a href="tools/percentage-increase.html">Increase</a></li>
+                        <li><a href="tools/percentage-decrease.html">Decrease</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Ad Top Banner -->
+    <div class="ad-container" data-ad="top-banner"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="blog-header">
+                <h1>PercentageMath Blog</h1>
+                <p class="subtitle">Learn about percentage calculations, math tips, and how to use our calculator tools effectively.</p>
+                
+                <div class="blog-search">
+                    <input type="text" id="blogSearch" placeholder="Search blog posts..." aria-label="Search blog posts">
+                    <button onclick="searchBlog()" aria-label="Search">
+                        🔍
+                    </button>
+                </div>
+            </div>
+            
+            <div class="blog-container">
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="#all" class="category-link active" data-category="all">All Posts</a></li>
+                            <li><a href="#tutorials" class="category-link" data-category="tutorials">Tutorials</a></li>
+                            <li><a href="#tips" class="category-link" data-category="tips">Math Tips</a></li>
+                            <li><a href="#business" class="category-link" data-category="business">Business Math</a></li>
+                            <li><a href="#education" class="category-link" data-category="education">Education</a></li>
+                            <li><a href="#tools" class="category-link" data-category="tools">Tool Guides</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>Popular Posts</h3>
+                        <div class="popular-posts">
+                            <a href="#" class="popular-post">
+                                <span class="popular-rank">1</span>
+                                <span class="popular-title">How to Calculate Percentage Increase</span>
+                            </a>
+                            <a href="#" class="popular-post">
+                                <span class="popular-rank">2</span>
+                                <span class="popular-title">Discount Calculation Tips</span>
+                            </a>
+                            <a href="#" class="popular-post">
+                                <span class="popular-rank">3</span>
+                                <span class="popular-title">Understanding Percentages</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>Newsletter</h3>
+                        <div class="newsletter-widget">
+                            <p>Get math tips and updates directly in your inbox.</p>
+                            <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+                            <button onclick="subscribeNewsletter()">Subscribe</button>
+                            <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar Ad -->
+                    <div class="ad-container sidebar-ad" data-ad="sidebar"></div>
+                </aside>
+                
+                <!-- Main Blog Content -->
+                <div class="blog-main">
+                    <div class="blog-grid" id="blogGrid">
+                        <!-- Blog posts will be loaded here by JavaScript -->
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="blog-pagination">
+                        <button class="pagination-btn prev" onclick="prevPage()" disabled>
+                            ← Previous
+                        </button>
+                        <div class="page-numbers">
+                            <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">3</span></span>
+                        </div>
+                        <button class="pagination-btn next" onclick="nextPage()">
+                            Next →
+                        </button>
+                    </div>
+                    
+                    <!-- No Results Message -->
+                    <div id="noResults" class="no-results" style="display: none;">
+                        <h3>No posts found</h3>
+                        <p>Try different search terms or browse all categories.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Section -->
+            <section class="featured-section">
+                <h2>Featured Guides</h2>
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <div class="featured-badge">⭐ Featured</div>
+                        <div class="featured-content">
+                            <h3>Complete Guide to Percentage Calculations</h3>
+                            <p>Learn everything from basic percentage calculations to advanced business applications.</p>
+                            <a href="#" class="featured-link">Read Guide →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-card">
+                        <div class="featured-badge">🎓 Tutorial</div>
+                        <div class="featured-content">
+                            <h3>How Businesses Use Percentages</h3>
+                            <p>Discover practical applications of percentages in business, finance, and economics.</p>
+                            <a href="#" class="featured-link">Read Tutorial →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Middle Ad -->
+            <div class="ad-container ad-middle" data-ad="middle-rectangle"></div>
+            
+            <!-- Resources Section -->
+            <section class="resources-section">
+                <h2>Free Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">📝</div>
+                        <h3>Cheat Sheets</h3>
+                        <p>Downloadable percentage formula cheat sheets for quick reference.</p>
+                        <button onclick="downloadCheatSheet()">Download PDF</button>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">🎯</div>
+                        <h3>Practice Problems</h3>
+                        <p>Test your percentage calculation skills with interactive practice problems.</p>
+                        <a href="#" class="resource-link">Start Practicing</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">📊</div>
+                        <h3>Video Tutorials</h3>
+                        <p>Watch step-by-step video tutorials on percentage calculations.</p>
+                        <a href="#" class="resource-link">Watch Videos</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">🛠️</div>
+                        <h3>Tool Collection</h3>
+                        <p>Access all our percentage calculator tools in one convenient location.</p>
+                        <a href="tools/percentage-calculator.html" class="resource-link">Explore Tools</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <a href="index.html">
+                            <span style="font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                        </a>
+                    </div>
+                    <p class="footer-description">Educational percentage calculator tools and math resources.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#tips">Math Tips</a></li>
+                        <li><a href="#business">Business Math</a></li>
+                        <li><a href="#education">Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/percentage-calculator.html">Calculator</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="pages/about.html">About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
+                        <li><a href="#" onclick="subscribeNewsletterModal()">Newsletter</a></li>
+                        <li><a href="pages/privacy-policy.html">Privacy</a></li>
+                        <li><a href="pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> PercentageMath. All rights reserved.</p>
+                <p class="disclaimer-note">Educational content only. Verify important calculations with professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/blog.js"></script>
+    
+    <!-- Blog Page Styles -->
+    <style>
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .blog-search {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+        
+        .blog-search input {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .blog-search button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .blog-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .blog-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .sidebar-widget {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-widget h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-link {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .category-link:hover,
+        .category-link.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .popular-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .popular-post {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            border-radius: 6px;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .popular-post:hover {
+            background: var(--bg-lighter);
+        }
+        
+        .popular-rank {
+            background: var(--primary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .popular-title {
+            font-size: 0.9rem;
+            flex: 1;
+        }
+        
+        .newsletter-widget input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .newsletter-widget button {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .newsletter-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .sidebar-ad {
+            margin-top: 1.5rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: var(--bg-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .blog-category {
+            background: var(--bg-light);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .blog-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .pagination-btn {
+            padding: 10px 20px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pagination-btn:hover:not(:disabled) {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-info {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+        }
+        
+        .featured-section {
+            margin: 4rem 0;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .featured-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: var(--radius);
+            padding: 2rem;
+            color: white;
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .featured-content h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .featured-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        .resources-section {
+            margin: 4rem 0;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .resource-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+        
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .resource-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .resource-card button,
+        .resource-link {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                position: static;
+                order: 2;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-search {
+                margin: 1.5rem auto 0;
+            }
+            
+            .featured-section,
+            .resources-section {
+                margin: 3rem 0;
+            }
+            
+            .blog-pagination {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-header {
+                margin-bottom: 2rem;
+            }
+            
+            .blog-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .featured-card,
+            .resource-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</body>
+</html>
