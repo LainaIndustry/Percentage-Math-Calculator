@@ -1,1 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Percentage Decrease Calculator - Calculate price drops, depreciation, losses, and reductions with detailed explanations.">
+    <meta name="keywords" content="percentage decrease calculator, price drop calculator, depreciation calculator, loss calculator, reduction calculator">
+    <title>Percentage Decrease Calculator - Calculate Drops & Losses | PercentageMath</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Percentage Decrease Calculator",
+        "description": "Calculate percentage decreases for prices, values, measurements, and more",
+        "applicationCategory": "FinancialApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/calculator.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="percentage-calculator.html">Calculator</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="discount-calculator.html">Discount</a></li>
+                        <li><a href="percentage-increase.html">Increase</a></li>
+                        <li><a href="percentage-decrease.html" class="active">Decrease</a></li>
+                        <li><a href="../pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Ad Top Banner -->
+    <div class="ad-container" data-ad="top-banner"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Percentage Decrease Calculator</h1>
+            <p class="subtitle">Calculate percentage decreases for prices, values, measurements, and losses. Essential for finance, shopping, and analysis.</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-content">
+                    <div class="calculator-form">
+                        <h3>Calculate Percentage Decrease</h3>
+                        <p class="form-description">Enter original and new values to calculate the percentage decrease.</p>
+                        
+                        <div class="input-group">
+                            <label for="originalValueDec">
+                                <span class="label-text">Original Value</span>
+                                <span class="label-example">e.g., Original price, starting value</span>
+                            </label>
+                            <input type="number" id="originalValueDec" placeholder="Enter original value" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="newValueDec">
+                                <span class="label-text">New Value</span>
+                                <span class="label-example">e.g., Reduced price, current value</span>
+                            </label>
+                            <input type="number" id="newValueDec" placeholder="Enter new value" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="button-group">
+                            <button class="btn calculate-btn" onclick="calculateDecrease()">
+                                <span class="btn-icon">📉</span>
+                                Calculate Decrease
+                            </button>
+                            <button class="btn reset-btn" onclick="resetDecrease()">
+                                <span class="btn-icon">↺</span>
+                                Reset
+                            </button>
+                        </div>
+                        
+                        <div class="result-container">
+                            <div class="result-header">
+                                <h4>Decrease Results:</h4>
+                                <button class="copy-btn" onclick="copyDecreaseResults()" title="Copy results">
+                                    📋
+                                </button>
+                            </div>
+                            <div class="result" id="decreaseResult">
+                                <div style="text-align: center; padding: 1rem;">
+                                    <p style="color: var(--text-light);">Enter values to calculate percentage decrease</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Ad -->
+            <div class="ad-container ad-middle" data-ad="middle-rectangle"></div>
+
+            <!-- Explanation Section -->
+            <section class="explanation-section">
+                <h2>How Percentage Decrease Works</h2>
+                <div class="explanation-content" id="decreaseExplanation">
+                    <h3>Percentage Decrease Formula</h3>
+                    <div class="formula-display">
+                        <code>Percentage Decrease = [(Original Value - New Value) ÷ Original Value] × 100</code>
+                    </div>
+                    
+                    <h3>Step-by-Step Calculation</h3>
+                    <p>To calculate percentage decrease:</p>
+                    <ol>
+                        <li>Find the decrease amount: Original Value - New Value</li>
+                        <li>Divide the decrease by the Original Value</li>
+                        <li>Multiply by 100 to get the percentage</li>
+                    </ol>
+                    
+                    <div class="example-box">
+                        <h4>Example: Price Decrease</h4>
+                        <p><strong>Original Price:</strong> $200</p>
+                        <p><strong>New Price:</strong> $160</p>
+                        <p><strong>Calculation:</strong></p>
+                        <p>1. Decrease amount: $200 - $160 = $40</p>
+                        <p>2. Divide: $40 ÷ $200 = 0.2</p>
+                        <p>3. Multiply: 0.2 × 100 = <strong>20% decrease</strong></p>
+                    </div>
+                    
+                    <h3>Common Applications</h3>
+                    <div class="applications-grid">
+                        <div class="application">
+                            <h4>💰 Price Drops</h4>
+                            <p>Calculate how much prices have decreased during sales or market changes.</p>
+                        </div>
+                        <div class="application">
+                            <h4>📉 Investment Losses</h4>
+                            <p>Determine percentage losses in stock portfolios or investments.</p>
+                        </div>
+                        <div class="application">
+                            <h4>🏠 Property Depreciation</h4>
+                            <p>Calculate how much property values have decreased over time.</p>
+                        </div>
+                        <div class="application">
+                            <h4>📊 Performance Drops</h4>
+                            <p>Measure decreases in sales, production, or efficiency metrics.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Real-World Scenarios -->
+            <section class="scenarios-section">
+                <h2>Real-World Scenarios</h2>
+                <div class="scenarios-grid">
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <div class="scenario-icon">💼</div>
+                            <h3>Stock Market Loss</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Stock price drops from $80 to $64.</p>
+                        <p><strong>Calculation:</strong> [(80 - 64) ÷ 80] × 100 = 20%</p>
+                        <p><strong>Result:</strong> 20% loss in stock value</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <div class="scenario-icon">🏠</div>
+                            <h3>Home Value Drop</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Home value decreases from $500,000 to $450,000.</p>
+                        <p><strong>Calculation:</strong> [(500,000 - 450,000) ÷ 500,000] × 100 = 10%</p>
+                        <p><strong>Result:</strong> 10% depreciation in home value</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <div class="scenario-icon">🛒</div>
+                            <h3>Clearance Sale</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Item price reduced from $120 to $72.</p>
+                        <p><strong>Calculation:</strong> [(120 - 72) ÷ 120] × 100 = 40%</p>
+                        <p><strong>Result:</strong> 40% off clearance price</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <div class="scenario-icon">📈</div>
+                            <h3>Business Revenue Drop</h3>
+                        </div>
+                        <p><strong>Scenario:</strong> Quarterly revenue falls from $1M to $850,000.</p>
+                        <p><strong>Calculation:</strong> [(1,000,000 - 850,000) ÷ 1,000,000] × 100 = 15%</p>
+                        <p><strong>Result:</strong> 15% revenue decrease</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Percentage Decrease FAQs</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What's the difference between percentage decrease and absolute decrease?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Absolute Decrease:</strong> The actual numerical difference (e.g., $200 to $160 = $40 decrease).</p>
+                            <p><strong>Percentage Decrease:</strong> The relative change as a percentage (e.g., $200 to $160 = 20% decrease).</p>
+                            <p>Percentage is better for comparing different scales and contexts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I calculate the original value from a percentage decrease?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Use formula: <code>Original Value = New Value ÷ (1 - Percentage Decrease/100)</code></p>
+                            <p><strong>Example:</strong> New value is $80 after 20% decrease:</p>
+                            <p>Original = $80 ÷ (1 - 20/100) = $80 ÷ 0.8 = $100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can percentage decrease be more than 100%?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, but it means the value has gone to zero or negative.</p>
+                            <p><strong>Example:</strong> From $100 to $0 = 100% decrease</p>
+                            <p><strong>Example:</strong> From $100 to -$50 = 150% decrease</p>
+                            <p>In most practical scenarios, decreases are between 0% and 100%.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How to calculate percentage decrease over multiple periods?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Use compound percentage formula:</p>
+                            <p><code>Final Value = Original Value × (1 - d₁/100) × (1 - d₂/100) × ...</code></p>
+                            <p><strong>Example:</strong> $100 with 20% then 10% decrease:</p>
+                            <p>$100 × 0.8 × 0.9 = $72 (28% total decrease, not 30%)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison Table -->
+            <section class="comparison-section">
+                <h2>Decrease vs. Discount Comparison</h2>
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>Decrease Calculation</th>
+                                <th>Discount Calculation</th>
+                                <th>Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Price drops from $100 to $80</td>
+                                <td>20% decrease</td>
+                                <td>20% discount</td>
+                                <td>Same calculation</td>
+                            </tr>
+                            <tr>
+                                <td>Value drops from $200 to $150</td>
+                                <td>25% decrease</td>
+                                <td>25% off</td>
+                                <td>Different context, same math</td>
+                            </tr>
+                            <tr>
+                                <td>Population decreases from 1000 to 900</td>
+                                <td>10% decrease</td>
+                                <td>Not applicable</td>
+                                <td>Decrease used for non-price contexts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Bottom Ad -->
+            <div class="ad-container ad-bottom-banner" data-ad="bottom-banner"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <span style="font-weight: 700; color: var(--primary-color);">PercentageMath</span>
+                        </a>
+                    </div>
+                    <p class="footer-description">Accurate percentage calculations for financial analysis and decision-making.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Decrease Tools</h4>
+                    <ul>
+                        <li><a href="percentage-decrease.html" class="active">Percentage Decrease</a></li>
+                        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="percentage-increase.html">Increase Calculator</a></li>
+                        <li><a href="percentage-calculator.html">Basic Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Financial Tools</h4>
+                    <ul>
+                        <li><a href="profit-percentage.html">Profit/Loss Calculator</a></li>
+                        <li><a href="gst-calculator.html">Tax Calculator</a></li>
+                        <li><a href="../blog.html">Financial Tips</a></li>
+                        <li><a href="../pages/contact.html">Consultation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="../pages/about.html">About Us</a></li>
+                        <li><a href="../pages/contact.html">Contact</a></li>
+                        <li><a href="../pages/privacy-policy.html">Privacy</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> PercentageMath. All rights reserved.</p>
+                <p class="disclaimer-note">Note: Financial calculations are for reference. Consult professionals for investment decisions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/faq.js"></script>
+    
+    <!-- Decrease Calculator JS -->
+    <script>
+        function calculateDecrease() {
+            const original = parseFloat(document.getElementById('originalValueDec').value);
+            const newVal = parseFloat(document.getElementById('newValueDec').value);
+            
+            // Validation
+            if (isNaN(original) || isNaN(newVal)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+            
+            if (original <= 0) {
+                alert('Original value must be greater than zero');
+                return;
+            }
+            
+            if (newVal >= original) {
+                alert('New value must be less than original value for decrease');
+                return;
+            }
+            
+            // Calculations
+            const decreaseAmount = original - newVal;
+            const percentageDecrease = (decreaseAmount / original) * 100;
+            const multiplier = newVal / original;
+            const remainingPercentage = 100 - percentageDecrease;
+            
+            // Display results
+            const resultDiv = document.getElementById('decreaseResult');
+            resultDiv.innerHTML = `
+                <div style="padding: 1rem;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="font-size: 3rem; font-weight: bold; color: var(--error-color);">
+                            ${percentageDecrease.toFixed(2)}%
+                        </div>
+                        <div style="font-size: 1rem; color: var(--text-light); margin-top: 0.5rem;">
+                            Percentage Decrease
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; color: var(--text-light);">Original Value</div>
+                            <div style="font-size: 1.3rem; font-weight: bold;">${formatNumber(original)}</div>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px;">
+                            <div style="font-size: 0.9rem; color: var(--text-light);">New Value</div>
+                            <div style="font-size: 1.3rem; font-weight: bold;">${formatNumber(newVal)}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, var(--error-color), #c62828); padding: 1.5rem; border-radius: 12px; color: white; margin-bottom: 1rem;">
+                        <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">Decrease Amount</div>
+                        <div style="font-size: 2rem; font-weight: bold;">${formatNumber(decreaseAmount)}</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">Absolute Decrease</div>
+                    </div>
+                    
+                    <div style="background: var(--bg-light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Remaining Value:</span>
+                            <span style="font-weight: bold; color: var(--success-color);">${remainingPercentage.toFixed(2)}%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Multiplier:</span>
+                            <span style="font-weight: bold;">${multiplier.toFixed(4)}×</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Formula:</span>
+                            <span>[(${formatNumber(original)} - ${formatNumber(newVal)}) ÷ ${formatNumber(original)}] × 100</span>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-lighter); padding: 1rem; border-radius: 8px; font-size: 0.9rem;">
+                        <p><strong>Interpretation:</strong> The value decreased by ${percentageDecrease.toFixed(2)}%, leaving ${remainingPercentage.toFixed(2)}% of the original value.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Highlight result
+            resultDiv.classList.remove('highlight');
+            void resultDiv.offsetWidth;
+            resultDiv.classList.add('highlight');
+            
+            // Update explanation
+            updateDecreaseExplanation(original, newVal, percentageDecrease, decreaseAmount);
+        }
+        
+        function resetDecrease() {
+            document.getElementById('originalValueDec').value = '';
+            document.getElementById('newValueDec').value = '';
+            document.getElementById('decreaseResult').innerHTML = `
+                <div style="text-align: center; padding: 1rem;">
+                    <p style="color: var(--text-light);">Enter values to calculate percentage decrease</p>
+                </div>
+            `;
+            
+            // Reset explanation
+            document.getElementById('decreaseExplanation').innerHTML = `
+                <h3>Percentage Decrease Formula</h3>
+                <div class="formula-display">
+                    <code>Percentage Decrease = [(Original Value - New Value) ÷ Original Value] × 100</code>
+                </div>
+                
+                <h3>Step-by-Step Calculation</h3>
+                <p>To calculate percentage decrease:</p>
+                <ol>
+                    <li>Find the decrease amount: Original Value - New Value</li>
+                    <li>Divide the decrease by the Original Value</li>
+                    <li>Multiply by 100 to get the percentage</li>
+                </ol>
+                
+                <div class="example-box">
+                    <h4>Example: Price Decrease</h4>
+                    <p><strong>Original Price:</strong> $200</p>
+                    <p><strong>New Price:</strong> $160</p>
+                    <p><strong>Calculation:</strong></p>
+                    <p>1. Decrease amount: $200 - $160 = $40</p>
+                    <p>2. Divide: $40 ÷ $200 = 0.2</p>
+                    <p>3. Multiply: 0.2 × 100 = <strong>20% decrease</strong></p>
+                </div>
+            `;
+        }
+        
+        function copyDecreaseResults() {
+            const resultDiv = document.getElementById('decreaseResult');
+            const textToCopy = resultDiv.textContent;
+            
+            if (navigator.clipboard && !textToCopy.includes('Enter values to calculate')) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Results copied to clipboard!');
+                });
+            }
+        }
+        
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(2) + 'M';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(2) + 'K';
+            }
+            return num.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+        
+        function updateDecreaseExplanation(original, newVal, percentage, decreaseAmount) {
+            const explanationDiv = document.getElementById('decreaseExplanation');
+            
+            explanationDiv.innerHTML = `
+                <h3>Your Calculation Explained</h3>
+                <div class="formula-display">
+                    <code>Percentage Decrease = [(${formatNumber(original)} - ${formatNumber(newVal)}) ÷ ${formatNumber(original)}] × 100</code>
+                </div>
+                
+                <h3>Step-by-Step Breakdown</h3>
+                <div class="step-counter">
+                    <div class="step completed">1</div>
+                    <div class="step-label">Calculate the decrease amount</div>
+                </div>
+                <p>${formatNumber(original)} - ${formatNumber(newVal)} = <strong>${formatNumber(decreaseAmount)}</strong></p>
+                
+                <div class="step-counter">
+                    <div class="step completed">2</div>
+                    <div class="step-label">Divide decrease by original value</div>
+                </div>
+                <p>${formatNumber(decreaseAmount)} ÷ ${formatNumber(original)} = <strong>${(decreaseAmount/original).toFixed(4)}</strong></p>
+                
+                <div class="step-counter">
+                    <div class="step completed">3</div>
+                    <div class="step-label">Multiply by 100 for percentage</div>
+                </div>
+                <p>${(decreaseAmount/original).toFixed(4)} × 100 = <strong>${percentage.toFixed(2)}%</strong></p>
+                
+                <div class="example-box">
+                    <h4>Interpretation</h4>
+                    <p>The value decreased from ${formatNumber(original)} to ${formatNumber(newVal)}, which is:</p>
+                    <ul>
+                        <li><strong>${formatNumber(decreaseAmount)}</strong> absolute decrease</li>
+                        <li><strong>${percentage.toFixed(2)}%</strong> relative decrease</li>
+                        <li><strong>${(newVal/original).toFixed(2)}×</strong> remaining fraction</li>
+                        <li><strong>${(100 - percentage).toFixed(2)}%</strong> of original value remains</li>
+                    </ul>
+                    <p>For every 100 units of original value, there are now ${(100 - percentage).toFixed(2)} units remaining.</p>
+                </div>
+                
+                <h3>Practical Implications</h3>
+                <div class="implications-grid">
+                    <div class="implication">
+                        <h4>📊 Financial Analysis</h4>
+                        <p>A ${percentage.toFixed(2)}% decrease means the value is now at ${(100 - percentage).toFixed(2)}% of its original level.</p>
+                    </div>
+                    <div class="implication">
+                        <h4>💼 Investment Perspective</h4>
+                        <p>To recover from a ${percentage.toFixed(2)}% loss, you need a ${((original/newVal - 1) * 100).toFixed(2)}% gain.</p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .scenarios-section {
+            margin-top: 3rem;
+        }
+        
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .scenario-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border-top: 4px solid var(--error-color);
+        }
+        
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .scenario-icon {
+            font-size: 2rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .application {
+            background: var(--bg-lighter);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+        }
+        
+        .application h4 {
+            color: var(--error-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .comparison-section {
+            margin-top: 3rem;
+        }
+        
+        .comparison-table-container {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .implications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .implication {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .implication h4 {
+            color: var(--warning-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .scenarios-grid,
+            .applications-grid,
+            .implications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</body>
+</html>
